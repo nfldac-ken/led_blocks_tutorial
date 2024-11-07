@@ -16,6 +16,9 @@ This will set up the LED strip ready for us to use it.
 
 Add a set strip sub-block from the Neopixel  ``||neopixel.create()||`` menu
 
+Change the number of LEDs to read with 61 leds.
+And use the right hand end drop down to select the LED type as RGB+W
+
 
 Add a Neopixel  more ``||neopixel.setbrightness()||`` sub-block
 
@@ -56,7 +59,7 @@ and set up our variables hardware settings so we are ready to go...
 
 ### Add a pause for things to settle
 
-drag and drop a  ``||basic:pause||`` into the ``||basic:onstart||`` island block
+drag and drop a  ``||basic:pause||`` into the ``||basic:onstart||`` block
 
 clicking on the drop down arrow to select 200ms
 
@@ -64,7 +67,7 @@ clicking on the drop down arrow to select 200ms
 
 ### Add the display
 
-drag and drop a  ``||basic:show leds||`` into the ``||basic:onstart||`` island block
+drag and drop a  ``||basic:show leds||`` into the ``||basic:onstart||`` block
 
 clicking on the squares to turn them white to create a tick shape
 
