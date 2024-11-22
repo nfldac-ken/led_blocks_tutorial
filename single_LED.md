@@ -132,7 +132,7 @@ clicking on the squares to turn them white to create a number 15 shape
 
 Add a ``||Neopixel||`` ``||....more||``  ``||neopixel.strip_0.setPixelColor(0, neopixel.red())||`` sub-block
 
-Find the ``||Neopixel||`` ``||....more||``  ``||neopixel.strip_0.setPixelColor(0, neopixel.rgb())||`` red green blue sub-block
+Find the ``||Neopixel||`` ``||....more||``   ``||neopixel.strip_0.setPixelColor()||`` ``||red green blue sub-block||``
 and drag it to dock over the word 'red' with an arrow next to it.
 
 Then chage the values from 255 255 255 to 10 10 10
