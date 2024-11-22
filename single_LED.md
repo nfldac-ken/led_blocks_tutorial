@@ -20,7 +20,7 @@ Change the number of LEDs to read with 61 leds.
 And use the right hand end drop down to select the LED type as RGB+W
 
 
-dd a  ``||Neopixel||`` ``||....more||`` ``||neopixel.strip.setbrightness()||`` sub-block
+Add a  ``||Neopixel||`` ``||....more||`` ``||neopixel.strip.setbrightness()||`` sub-block
 
 and drop it into the on start block below the set strip sub-block
 change the value from 255 to 50
