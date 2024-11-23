@@ -296,7 +296,7 @@ Do this for each of the sub-blocks.
 
 Change the pause ms to 200
 
-Make the pattern of white dots, create a number tick shape.
+Make the pattern of white dots, create a tick shape.
 
 Check and change if required, the digital write pin P13 value to 1.
 
