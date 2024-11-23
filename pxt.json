@@ -10,7 +10,8 @@
     "files": [
         "main.ts",
         "README.md",
-        "single_LED.md"
+        "single_LED.md",
+        "single_LED_colour.md"
     ],
     "testFiles": [
         "test.ts"
