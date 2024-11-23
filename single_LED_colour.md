@@ -1,9 +1,9 @@
-``package
+```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
 
 ```
- 
+
 
 
 
@@ -63,4 +63,7 @@ putting your chosen values in to replace ``|| 0, 0, 0 ||``
 and click ``|Download|`` to try your code out on the connected MicroBit
 to see what it does.
 
-Experinment with some other colours and decide which ones you like best.
+Experiment with some other colours and decide which ones you like best.
+
+And try changing the colour values from 255 to lower numbers
+to generate some more subtle colours.
