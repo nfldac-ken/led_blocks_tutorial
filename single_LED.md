@@ -149,7 +149,7 @@ Add a Neopixel  ``||neopixel.strip.show()||`` sub-block
 ### Add the input output code to drive the output LED's
 
 Add an ``||pins.digitalWritePin()||`` from the input menu
-and using the drop down arrow chang P0 to P13
+and using the drop down arrow change P0 to P13
 
 Add an ``||pins.digitalWritePin()||`` from the input menu
 and using the drop down arrow chang P0 to P14 and
