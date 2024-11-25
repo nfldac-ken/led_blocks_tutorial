@@ -11,7 +11,8 @@
         "main.ts",
         "README.md",
         "single_LED.md",
-        "single_LED_colour.md"
+        "single_LED_colour.md",
+        "single_LED_modifyColour.md"
     ],
     "testFiles": [
         "test.ts"
