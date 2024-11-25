@@ -50,7 +50,7 @@ input.onButtonPressed(Button.B, function () {
     pins.digitalWritePin(DigitalPin.P14, 0)
 })
 let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 4, NeoPixelMode.RGBW)
+strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
 strip.setBrightness(50)
 strip.clear()
 strip.show()
