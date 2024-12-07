@@ -5,71 +5,7 @@ neopixel=github:microsoft/pxt-neopixel#v0.7.5
 ```
 
 
-```template
-    
-input.onButtonPressed(Button.A, function () {
-    basic.showLeds(`
-        # . # # #
-        # . # . .
-        # . # # #
-        # . . . #
-        # . # # #
-        `)
-    strip.setPixelColor(0, neopixel.rgb(10, 10, 10))
-    strip.setPixelWhiteLED(0, 10)
-    strip.show()
-    pins.digitalWritePin(DigitalPin.P13, 0)
-    pins.digitalWritePin(DigitalPin.P14, 1)
-})
-input.onButtonPressed(Button.AB, function () {
-    strip.clear()
-    strip.show()
-    basic.showLeds(`
-        . . . . .
-        . . . . #
-        . . . # .
-        # . # . .
-        . # . . .
-        `)
-    basic.pause(200)
-    pins.digitalWritePin(DigitalPin.P13, 1)
-    pins.digitalWritePin(DigitalPin.P14, 1)
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        # . # . .
-        # . # . .
-        # . # . .
-        # . # . .
-        # . # . .
-        `)
-    strip.setPixelColor(0, neopixel.rgb(0, 0, 0))
-    strip.setPixelWhiteLED(0, 0)
-    strip.show()
-    pins.digitalWritePin(DigitalPin.P13, 1)
-    pins.digitalWritePin(DigitalPin.P14, 0)
-})
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(50)
-strip.clear()
-strip.show()
-basic.pause(200)
-basic.showLeds(`
-    . . . . .
-    . . . . #
-    . . . # .
-    # . # . .
-    . # . . .
-    `)
-basic.forever(function () {
-	
-})
 
-
-
-
-```
 
 
 # LED blocks with the BBuBIOLbox : A block of LEDs Building the code...
