@@ -77,13 +77,13 @@ basic.forever(function () {
 
 
 
-## Starting with your single LED on the box code.
+## Starting with a given version of the single LED on the box code.
 
 
 Remove the parts we no longer need for this part.
 
 
-### In your code, find the ``||input.onButtonPressed(a)||``
+### In the code, find the ``||input.onButtonPressed(a)||``
 
 delete all the sub-blocks
 
