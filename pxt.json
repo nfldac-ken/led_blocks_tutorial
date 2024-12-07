@@ -13,7 +13,8 @@
         "single_LED.md",
         "single_LED_colour.md",
         "single_LED_modifyColour.md",
-        "colour_Block_LED.md"
+        "colour_Block_LED.md",
+        "colour_Block_LED_modifySingleToBlock.md"
     ],
     "testFiles": [
         "test.ts"
