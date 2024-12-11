@@ -9,12 +9,12 @@ neopixel=github:microsoft/pxt-neopixel#v0.7.5
 
 
 
-## Add the Neopixel set up to the on start block
+## Add some Neopixel sub-blocks to the on start block
 This will set up the LED strip ready for us to use it.
 
 ### Set up the LEDs
 
-Add a **set strip** sub-block from the Neopixel  ``||neopixel.create()||`` menu
+Add a **set strip** sub-block from the **Neopixel**  ``||neopixel.create()||`` menu
 
 > Change the number of LEDs to read **with 61 leds**.
 And use the right hand end drop down arrow **v** to select the LED type as **RGB+W**
@@ -60,7 +60,7 @@ and set up our variables hardware settings so we are ready to go...
 
 ### Add a pause for things to settle
 
-drag and drop a  ``||basic:pause||`` into the ``||basic:onstart||`` block
+drag and drop a  ``||basic:pause||`` into the **onstart** block
 
 > clicking on the drop down arrow **v** to select **200ms**
 
@@ -235,6 +235,7 @@ the **on button b pressed** block
 
 - **show leds**
 - **strip set**
+- **set pixel white**
 - **strip show**
 - **digital write pin 13**
 - **digital write pin 14**
@@ -310,7 +311,7 @@ and the code that controls what happens when it is activated
 
 Add an ``||input.onButtonPressed(a)||`` from the input menu. 
 
-> Change the drop down arrow to A+B.
+> Change the drop down arrow **v** to **A+B**.
 
 > The block will go from grey to purple showing it is now active.
 
@@ -343,7 +344,7 @@ you have just created.
 
 Change the **pause ms** to **200**
 
-Make the pattern of **white dots**, create a **tick shape**.
+Make the pattern of **white dots**, create a **tick shape with an extra dot in the corner**.
 
 Check and change if required, the **digital write pin P13** value to **1**.
 
