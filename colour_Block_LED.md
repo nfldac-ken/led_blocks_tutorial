@@ -1,8 +1,10 @@
+
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
 
 ```
+
 
 
 
@@ -119,8 +121,8 @@ Add a  ``||Variables.variables set()||`` sub-block
 
 
 **right click** and **Duplicate** (copy) the **set variable** sub-block 
-and the duplicate three more to end up with one for each of the 
-five variables that were created above.
+and then duplicate three more to end up with one for each of the 
+five variables that have now been created.
 
 > use the drop down **v** to select each variable 
 once the copy has been dragged into place.
@@ -345,7 +347,8 @@ inside the ``||target||`` function add the following..
 
   ``||Neopixel||`` ``||neopixel.strip.show.color()||`` 
 
-  > use the left end drop down arrow **v** to select the variable **range**
+  > Use the left end drop down arrow **v** to change 
+the variable from **strip** to **range**
 
 
 From the **Neopixel More** menu find a 
