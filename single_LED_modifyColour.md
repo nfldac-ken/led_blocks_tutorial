@@ -68,7 +68,7 @@ basic.forever(function () {
 ```
 
 
-# LED blocks with the BBuBIOLbox : Single LED, adding some colour...
+# LED blocks with the BBuBIOLbox : Single LED : Adding colour : Modify the code.
 
 
 
