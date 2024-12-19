@@ -9,7 +9,7 @@ neopixel=github:microsoft/pxt-neopixel#v0.7.5
 
 
 
-# LED blocks with the BBuBIOLbox : A block of LEDs, adding to the code...
+# LED blocks with the BBuBIOLbox : Single to a Block : Modify the code.
 
 
 
