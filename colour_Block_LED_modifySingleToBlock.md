@@ -396,13 +396,14 @@ inside the ``||target||`` function add the following..
  if it is not already showing.
 
 
- ### In the  ``||Variables.variables set()||`` menu
+ ### In the blue boarder
+of the **target** function block
 
- Fom the **Your Variables** section, drag a copy of the variable **targetStart** onto the **white circle** 
- after the words **range from** 
- and also the variable **targetLength** onto the **white circle**
- after the word **with**.
+ > click and drag the **targetStart** red oval and drop it to the **set range** sub-function
+ onto the **white circle** after the word **from**
 
+ > Do the same for the **targetLength** word dropping it onto 
+ the right hand **white circle**
 
 ### Below this add a                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
@@ -418,20 +419,21 @@ From the **Neopixel More** menu find a
 
 > and drag it to dock over the word **red** with an arrow next to it.
 
-### in the  ``||Variables.variables set()||`` menu
+ ### In the blue boarder
+of the **target** function block
 
- Fom the **Your Variables** section, drag a copy of the variable ``||targetRed||`` onto the white circle
- labelled ``||red||``
+ > click and drag the **targetRed** red oval and drop it to the 
+ **white circle** after the word red.
+ 
+ >> Do the same for the **green** and **blue** values.
 
->do the same for green and blue replacing them with
-the ``||targetGreen||`` and ``||targetBlue||`` variables
+### When it is called, or activated, 
+this code sends the colour instruction to a block of LED pixels. 
+The pixels are defined by the values in the variables 
+that the function is sent when it is called. 
 
+These variables are called the function's parameters.
 
-When it is called, or activated, this code sends the colour
-instruction to a block of LED pixels that are defined by the 
-values in the variables that it is sent when it is called. 
-
-These are also called the function's parameters.
 
 
 ...
