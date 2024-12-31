@@ -80,25 +80,25 @@ Remove the parts we no longer need.
 
 ### In the code, find the **on button A pressed **
 
-> delete **all** the sub-blocks
+> delete **all** the instructions
 
 > - **show leds** 
 - **strip set pixel color** 
 - **strip set pixel white LED**
 - **strip show**
-- both the **digital write pin** sub-blocks
+- both the **digital write pin** instructions
 
 
 
 ### and in the on button B pressed block
 
-> Also delete **all** the sub-blocks, as button A
+> Also delete **all** the instructions, as button A
 
 
 
 ### and in the on button A+B pressed block
 
-> delete both the **digital write pin** sub-blocks 
+> delete both the **digital write pin** instructions 
 and the **strip show**
 
 
@@ -174,14 +174,14 @@ Make four more variables  ``||Variables.make a variable()||``
 - **targetBlue** 
 
 
-Add a  ``||Variables.variables set()||`` sub-block
+Add a  ``||Variables.variables set()||`` instruction
 
-> and place it in the **on start** block below the **strip show** sub-block
+> and place it in the **on start** block below the **strip show** instruction
 
 >> use the drop down arrow and select the **targetStart** variable name
 
 
-**right click** and **Duplicate** (copy) the **set variable** sub-block 
+**right click** and **Duplicate** (copy) the **set variable** instruction 
 and then duplicate three more to end up with one for each of the 
 five variables that have now been created.
 
@@ -243,11 +243,11 @@ Move the screen window to find the **on button A pressed ** block.
 
 ### In the on button A pressed block
 
-Add a ``||neopixel.strip.clear()||`` sub-block.
+Add a ``||neopixel.strip.clear()||`` instruction.
 
 
 
-Add a  ``||Variables.variables set()||`` sub-block for
+Add a  ``||Variables.variables set()||`` instruction for
 each of the variables below and set the values as below.
 
 > - **targetRed = 50**
@@ -258,11 +258,11 @@ each of the variables below and set the values as below.
 ### Move the screen window to find the on button B block.
 
 
-Add a ``||neopixel.strip.clear()||`` sub-block.
+Add a ``||neopixel.strip.clear()||`` instruction.
 
 
 
-Add a  ``||Variables.variables set()||`` sub-block for
+Add a  ``||Variables.variables set()||`` instruction for
 each of the variables below and set the values as below. 
 
 > - **targetRed = 0**
@@ -273,10 +273,10 @@ each of the variables below and set the values as below.
 ### Move the screen window to find the on button A+B block.
 
 
-Add a  ``||Variables.variables set()||`` sub-block for
+Add a  ``||Variables.variables set()||`` instruction for
 each of the variables below and set the values as below. 
 
-> drop them in below the **strip clear** sub-block. 
+> drop them in below the **strip clear** instruction. 
 
 > - **targetRed = 0**
 - **targetGreen = 0** 
@@ -381,7 +381,7 @@ on the screen.
 right click on the function block and select **Edit Function** 
 to modify it and add the parameters.
 
-### Add some code sub-blocks
+### Add some code instructions
 inside the ``||target||`` function add the following..
 
  > **Neopixel** ``||neopixel.strip.clear()||``
@@ -390,20 +390,19 @@ inside the ``||target||`` function add the following..
 
  > a **Neopixel** ``||neopixel.set.range()||``
 
- After the word **to** in the set range sub-block, 
+ After the word **to** in the set range instruction, 
 
 >  use the drop down **v** arrow to select the variable **strip** 
  if it is not already showing.
 
 
- ### In the blue boarder
-of the **target** function block
+ ### In the  ``||Variables.variables set()||`` menu
 
- > click and drag the **targetStart** red oval and drop it to the **set range** sub-function
- onto the **white circle** after the word **from**
+ Fom the **Your Variables** section, drag a copy of the variable **targetStart** onto the **white circle** 
+ after the words **range from** 
+ and also the variable **targetLength** onto the **white circle**
+ after the word **with**.
 
- > Do the same for the **targetLength** word dropping it onto 
- the right hand **white circle**
 
 ### Below this add a                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
@@ -415,25 +414,24 @@ the variable from **strip** to **range**
 
 From the **Neopixel More** menu find a 
 
- **Neopixel**  **....more**   **red green blue** sub-block
+ **Neopixel**  **....more**   **red green blue** instruction
 
 > and drag it to dock over the word **red** with an arrow next to it.
 
- ### In the blue boarder
-of the **target** function block
+### in the  ``||Variables.variables set()||`` menu
 
- > click and drag the **targetRed** red oval and drop it to the 
- **white circle** after the word red.
- 
- >> Do the same for the **green** and **blue** values.
+ Fom the **Your Variables** section, drag a copy of the variable ``||targetRed||`` onto the white circle
+ labelled ``||red||``
 
-### When it is called, or activated, 
-this code sends the colour instruction to a block of LED pixels. 
-The pixels are defined by the values in the variables 
-that the function is sent when it is called. 
+>do the same for green and blue replacing them with
+the ``||targetGreen||`` and ``||targetBlue||`` variables
 
-These variables are called the function's parameters.
 
+When it is called, or activated, this code sends the colour
+instruction to a block of LED pixels that are defined by the 
+values in the variables that it is sent when it is called. 
+
+These are also called the function's parameters.
 
 
 ...
@@ -478,7 +476,7 @@ to add some code into it.
 ### Inside the forever function block
 
 add an **V Advanced**  **Functions**   ``||Functions.call()||`` 
-**Your Functions**  **call target** sub-block. 
+**Your Functions**  **call target** instruction. 
 
 > Dragging and dropping it into the **forever** block.
 
@@ -612,15 +610,3 @@ input.onButtonPressed(Button.AB, function () {
         `)
 
 }) 
-
-basic.forever(function () {
-    target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
-})
-
-function target (targetStart: number, targetLength: number, targetRed: number, targetGreen: number, targetBlue: number) {
-    strip.clear()
-    range = strip.range(targetStart, targetLength)
-    range.showColor(neopixel.rgb(targetRed, targetGreen, targetBlue))
-}
-
-```
