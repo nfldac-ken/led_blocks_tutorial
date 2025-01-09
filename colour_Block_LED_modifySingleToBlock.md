@@ -75,12 +75,12 @@ basic.forever(function () {
 
 
 ## Get the code blocks ready to modify. 
-Remove the parts we no longer need.
+Remove the parts that are no longer needed.
 
 
 ### In the code, find the **on button A pressed **
 
-> delete **all** the instructions
+> Delete **all** the instructions
 
 > - **show leds** 
 - **strip set pixel color** 
@@ -98,8 +98,9 @@ Remove the parts we no longer need.
 
 ### and in the on button A+B pressed block
 
-> delete both the **digital write pin** instructions 
-and the **strip show**
+> Delete the **strip show** and 
+both the **digital write pin** instructions. 
+
 
 
 ...
@@ -355,7 +356,7 @@ to control the LED strip
 
 ### In a clear space on the screen
 
-add an ``||V Advanced||``  ``||Functions||``   ``||functions.make()||`` 
+Add an ``||V Advanced||``  ``||Functions||``   ``||functions.make()||`` 
 ``||a Function||`` block
 
 > Type in the function name **target**  
@@ -374,7 +375,7 @@ Create the parameters below
 - **targetBlue** 
                                                          
 
-click **Done** and then move the new function to a clear space
+Click **Done** and then move the new function to a clear space
 on the screen.
 
 > if you have placed the function before creating the parameters, 
@@ -386,21 +387,22 @@ inside the ``||target||`` function add the following..
 
  > **Neopixel** ``||neopixel.strip.clear()||``
 
- and below this
+ And below this
 
  > a **Neopixel** ``||neopixel.set.range()||``
 
  After the word **to** in the set range instruction, 
 
->  use the drop down **v** arrow to select the variable **strip** 
- if it is not already showing.
+>  In the red oval shape, use the drop down **v** arrow to select 
+the variable **strip**  if it is not already showing.
 
 
- ### In the  ``||Variables.variables set()||`` menu
+ ### In the blue border of the function 
 
- Fom the **Your Variables** section, drag a copy of the variable **targetStart** onto the **white circle** 
+ **Right click duplicate** the parameter **targetStart** and 
+ drag and drop the it onto the **white circle** 
  after the words **range from** 
- and also the variable **targetLength** onto the **white circle**
+ and also the parameter **targetLength** onto the **white circle**
  after the word **with**.
 
 
@@ -418,20 +420,21 @@ From the **Neopixel More** menu find a
 
 > and drag it to dock over the word **red** with an arrow next to it.
 
-### in the  ``||Variables.variables set()||`` menu
+ ### In the blue border of the function 
 
- Fom the **Your Variables** section, drag a copy of the variable ``||targetRed||`` onto the white circle
- labelled ``||red||``
+ **Right click duplicate** the parameter **targetRed** and 
+ drag and drop the it onto the **white circle** 
+ **red**  
 
 >do the same for green and blue replacing them with
-the ``||targetGreen||`` and ``||targetBlue||`` variables
+the **targetGreen** and **targetBlue** parameters.
 
 
 When it is called, or activated, this code sends the colour
 instruction to a block of LED pixels that are defined by the 
 values in the variables that it is sent when it is called. 
 
-These are also called the function's parameters.
+In the Function block, these are also called the function's parameters.
 
 
 ...
@@ -610,5 +613,15 @@ input.onButtonPressed(Button.AB, function () {
         `)
 
 }) 
+
+basic.forever(function () {
+    target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
+})
+
+function target (targetStart: number, targetLength: number, targetRed: number, targetGreen: number, targetBlue: number) {
+    strip.clear()
+    range = strip.range(targetStart, targetLength)
+    range.showColor(neopixel.rgb(targetRed, targetGreen, targetBlue))
+}
 
 ```
