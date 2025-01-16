@@ -356,8 +356,8 @@ to control the LED strip
 
 ### In a clear space on the screen
 
-Add an ``||V Advanced||``  ``||Functions||``   ``||functions.make()||`` 
-``||a Function||`` block
+Click on **V Advanced** then select  
+``||Functions||`` ``||functions.make()||`` ``||a Function||`` block 
 
 > Type in the function name **target**  
 in the white box to the right of the word **function** 
