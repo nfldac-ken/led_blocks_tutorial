@@ -7,9 +7,10 @@ neopixel=github:microsoft/pxt-neopixel#v0.7.5
 
 
 ```template
+
 input.onButtonPressed(Button.A, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1   
     crossHairStart += 1
     targetRed = 50
     targetGreen = 50
@@ -17,8 +18,8 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1  
     crossHairStart += -1
     targetRed = 0
     targetGreen = 100
@@ -93,12 +94,14 @@ basic.forever(function () {
                 targetDirection = -1
             }
         }
-    }
     targetStart += targetDirection
     target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
     crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
     basic.pause(100)
+    }
+
 })
+
 
 
 ```
@@ -177,30 +180,29 @@ function target (targetStartPosition: number, targetLength: number, targetRed: n
     range.showColor(neopixel.rgb(targetRed, targetGreen, targetBlue))
 }
 
-let targetDirection = 0
-let score = 0
 let range: neopixel.Strip = null
-let startStop = 0
 let targetBlue = 0
 let targetGreen = 0
 let targetRed = 0
-let crossHairStart = 0
 let targetLength = 0
 let targetStart = 0
+let startStop = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(51)
+strip.setBrightness(50)
 strip.clear()
 strip.show()
-targetStart = 0
+startStop = 0
+targetStart = 10
 targetLength = 10
-crossHairStart = 30
+let crossHairStart = 30
+let targetDirection = 1
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
-targetRed = 50
-targetGreen = 50
-targetBlue = 50
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -219,7 +221,7 @@ basic.showLeds(`
 Find the **on button A pressed** block 
 
 Add a ``||logic.if()||`` instruction
-and dropp it just below the **change crossHairStart** instruction 
+and drop it just below the **change crossHairStart** instruction 
 
 > select another  ``||logic.if()||`` instruction
 and drop it underneath the first **if** instruction 
@@ -293,6 +295,9 @@ of the **and v** comparison instructions.
 
 
 ### Set up the compare instructions 
+
+### For the upper **if** instruction 
+
 From the ``||Variables.your variables()||`` menu pick 
 the **crossHairStart** red oval and drop it onto the left hand 
 **white circle** at the top of the first **if compare =** instruction 
@@ -303,7 +308,7 @@ the **crossHairStart** red oval and drop it onto the left hand
 to look like 
 - **crossHairStart > targetStart** 
 
->> From the ``||Math.Math()||`` menu 
+From the ``||Math.Math()||`` menu 
 pick a **0 +v 0** instruction and drop it onto 
 the far right hand **white circle**, in the top **if** compare instruction. 
 
@@ -312,20 +317,22 @@ the **crossHairStart** red oval and drop it onto the top
 **if compare**, into the first remaining **white circle** 
 
 >and then drop **targetStart** into the next **white circle** and 
-drop **targetLength** into the last **white circle**
+drop **targetLength** into the last **white circle** 
+
+Do the same for the other compare **white circles** from 
+left to right, top to bottom to read as below 
+
+>> - ** crossHairStart > v targetStart and v crossHairStart 
+< v targetStart + v targetLength** 
+
 
 ### For the lower if compare
 
 Do the same for the other compare **white circles** from 
 left to right, top to bottom to read as below 
 
->> - ** crossHairStart > targetStart and v targetStart + targetLength** 
-
-for the upper **if** and 
-
 >> - **crossHairStart =targetStart and v targetLength = 1** 
 
-for the lower **if** 
 
 
 Click on the **lightbulb** hint to check your code.
@@ -365,30 +372,29 @@ input.onButtonPressed(Button.A, function () {
 })
 
 
-let targetDirection = 0
-let score = 0
 let range: neopixel.Strip = null
-let startStop = 0
 let targetBlue = 0
 let targetGreen = 0
 let targetRed = 0
-let crossHairStart = 0
 let targetLength = 0
 let targetStart = 0
+let startStop = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(51)
+strip.setBrightness(50)
 strip.clear()
 strip.show()
-targetStart = 0
+startStop = 0
+targetStart = 10
 targetLength = 10
-crossHairStart = 30
+let crossHairStart = 30
+let targetDirection = 1
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
-targetRed = 50
-targetGreen = 50
-targetBlue = 50
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -418,7 +424,7 @@ Using the drop down arrow **v** Change the **A** to **B**.
 > the block will change from grey to pink. 
 
 ### Just below the strip clear instruction 
-Change the value of the **change crossHairStart** from **-1** to **1**
+Change the value of the **change crossHairStart** from **1** to **-1**
 
 > This makes the crossHair move in the opposite direction to 
 how it moves when the other button is pressed.
@@ -469,30 +475,29 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 
-let targetDirection = 0
-let score = 0
 let range: neopixel.Strip = null
-let startStop = 0
 let targetBlue = 0
 let targetGreen = 0
 let targetRed = 0
-let crossHairStart = 0
 let targetLength = 0
 let targetStart = 0
+let startStop = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(51)
+strip.setBrightness(50)
 strip.clear()
 strip.show()
-targetStart = 0
+startStop = 0
+targetStart = 10
 targetLength = 10
-crossHairStart = 30
+let crossHairStart = 30
+let targetDirection = 1
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
-targetRed = 50
-targetGreen = 50
-targetBlue = 50
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -587,30 +592,29 @@ input.onButtonPressed(Button.B, function () {
         targetBlue = 255
     }
 })
-let targetDirection = 0
-let score = 0
 let range: neopixel.Strip = null
-let startStop = 0
 let targetBlue = 0
 let targetGreen = 0
 let targetRed = 0
-let crossHairStart = 0
 let targetLength = 0
 let targetStart = 0
+let startStop = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(51)
+strip.setBrightness(50)
 strip.clear()
 strip.show()
-targetStart = 0
+startStop = 0
+targetStart = 10
 targetLength = 10
-crossHairStart = 30
+let crossHairStart = 30
+let targetDirection = 1
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
-targetRed = 50
-targetGreen = 50
-targetBlue = 50
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -632,12 +636,12 @@ basic.forever(function () {
                 targetRed = 50
                 targetGreen = 50
                 targetBlue = 50
-            }
+            }        
         }
         targetStart += targetDirection
         target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
         crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
-        basic.pause(100)
+        basic.pause(100)  
     }
 })
 
@@ -672,30 +676,29 @@ Then click ``|Download|`` to to see what it does.
 
 ``` blocks
 
-let targetDirection = 0
-let score = 0
 let range: neopixel.Strip = null
-let startStop = 0
 let targetBlue = 0
 let targetGreen = 0
 let targetRed = 0
-let crossHairStart = 0
 let targetLength = 0
 let targetStart = 0
+let startStop = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(51)
+strip.setBrightness(50)
 strip.clear()
 strip.show()
-targetStart = 0
+startStop = 0
+targetStart = 10
 targetLength = 10
-crossHairStart = 30
+let crossHairStart = 30
+let targetDirection = 1
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
-targetRed = 50
-targetGreen = 50
-targetBlue = 50
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -718,11 +721,12 @@ basic.forever(function () {
                 targetGreen = randint(0, 255)
                 targetBlue = randint(0, 255)
             }
-        }
         targetStart += targetDirection
         target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
         crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
         basic.pause(100)
+        }
+
     }
 })
 
