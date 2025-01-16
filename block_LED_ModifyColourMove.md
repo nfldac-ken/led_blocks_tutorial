@@ -1,3 +1,4 @@
+
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
@@ -92,11 +93,12 @@ we will use later to control the code actions.
 
 > give it the name **crossHairStart**
 
-Make four more variables  ``||Variables.make a variable()||``
+Make five more variables  ``||Variables.make a variable()||``
 
 > with the names below
 
->> - **targetDirection**  
+>> - **targetDirection** 
+- **startStop**   
 - **crossHairRed** 
 - **crossHairGreen** 
 - **crossHairBlue** 
@@ -113,11 +115,10 @@ Add a  ``||Variables.variables set()||`` instruction
 >> set the value in the **white circle** to **30** 
 
 
->> repeat to add another **set** for **targetDirection** with a value of **1** 
-
 And also for 
 
->> - **targetDirection** with a value of **1**
+>> - **targetDirection** with a value of **1** 
+- **startStop** with a value of **0**
 - **crossHairRed** with a value of **100**
 - **crossHairGreen** with a value of **0**
 - **crossHairBlue** with a value of **100**
@@ -144,12 +145,14 @@ targetStart = 10
 targetLength = 10
 let crossHairStart = 30
 targetDirection = 1
-targetRed = 0
-targetGreen = 0
-targetBlue = 0
+startStop = 0
 let crossHairRed = 100
 let crossHairGreen = 1
 let crossHairBlue = 100
+targetRed = 0
+targetGreen = 0
+targetBlue = 0
+
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -168,7 +171,7 @@ basic.showLeds(`
 ```
 
 
-## Create a new fucntion 
+## Create a new function 
 to control the crossHair LEDs
 
 
@@ -263,9 +266,6 @@ function crossHair (crossHairStart: number, crossHairLength: number, crossHairRe
     range.showColor(neopixel.rgb(crossHairRed, crossHairGreen, crossHairBlue))
 }
 
-let crossHairBlue = 0
-let crossHairGreen = 0
-let crossHairRed = 0
 let range: neopixel.Strip = null
 let targetBlue = 0
 let targetGreen = 0
@@ -286,6 +286,9 @@ let targetDirection = 1
 targetRed = 0
 targetGreen = 0
 targetBlue = 0
+let crossHairRed = 100
+let crossHairGreen = 1
+let crossHairBlue = 100
 basic.pause(200)
 basic.showLeds(`
     . . . . #
@@ -301,9 +304,19 @@ basic.showLeds(`
 ## Change the buttons and activate the new function. 
 Find the **on button A pressed** function block. 
 
+Add a  ``||Variables.variables set()||`` instruction
+
+> and place it in block below the **strip clear** instruction
+
+>> use the drop down arrow **v** and select the **startStop** variable name 
+if it is not already selected 
+>> set the value in the **white circle** to **1** 
+
+
+
 > Add a  ``||Variables.variables change()||`` instruction 
 
->> and drop it below the **strip clear** instruction 
+>> and drop it below the **set** instruction 
 
 In the **change** instruction use the **v** arrow to select the 
 variable **targetStart** 
@@ -314,14 +327,34 @@ variable **targetStart**
 ### Repeat the same for button B 
 find the **on button B pressed** block 
 
+Add a  ``||Variables.variables set()||`` instruction
+
+> and place it in below the **strip clear** instruction
+
+>> use the drop down arrow **v** and select the **startStop** variable name 
+if it is not already selected 
+>> set the value in the **white circle** to **1** 
+
 > Add a  ``||Variables.variables change()||`` instruction 
 
->> and drop it below the **strip clear** instruction 
+>> and drop it below the **set** instruction 
 
 In the **change** instruction use the **v** arrow to select the 
 variable **targetStart** 
 
 > and check the value is the **white circle** is **-1**
+
+### Repeat the same for button A+B 
+find the **on button A+B pressed** block 
+
+Add a  ``||Variables.variables set()||`` instruction
+
+> and place it in the block at the top. 
+
+>> use the drop down arrow **v** and select the **startStop** variable name 
+if it is not already selected 
+>> set the value in the **white circle** to **0** 
+
 
 ### Find the forever block
 Inside the block, add an **V Advanced**  **Functions**   ``||Functions.call()||`` 
@@ -347,10 +380,15 @@ for the other white cirlces in the order
 
 
 
-### This additional code changes the variable targetStart and calls the function crossHair. 
-> This variable tells the **target** set of LEDs how far up the strip to start. 
+### This code 
+changes the variables targetStart and startStop in the button functions. 
 
-> It is changed each time the button is pressed.
+> This variable stells the **target** set of LEDs how far up the strip to start. 
+and allow the function to be called from the forever function. 
+
+> These are updated each time a button is pressed.
+
+In the forever funcdtion. 
 
 > The **call** activates the function which tells the LEDs 
 where the **crossHair** set of LEDs is located. 
@@ -367,8 +405,8 @@ within the **forever** block, which runs all of the time.
 ``` blocks
 
 input.onButtonPressed(Button.A, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1   
     targetStart += 1
     targetRed = 50
     targetGreen = 50
@@ -376,12 +414,33 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1    
     targetStart += -1
     targetRed = 0
     targetGreen = 100
     targetBlue = 100
+})
+
+input.onButtonPressed(Button.AB, function () {
+    startStop = 0
+    targetLength = 10
+    targetStart = 10
+    pins.digitalWritePin(DigitalPin.P13, 1)
+    pins.digitalWritePin(DigitalPin.P14, 1)
+    targetRed = 0
+    targetGreen = 0
+    targetBlue = 0
+    strip.clear()
+    strip.show()
+    basic.showLeds(`
+        . . . . #
+        . . . # .
+        # . # . .
+        . # . . .
+        . . . . .
+        `)
+    basic.pause(200)
 })
 
 basic.forever(function () {
@@ -467,6 +526,7 @@ When the **red** and **blue** buttons are pressed,
 ``` blocks 
 input.onButtonPressed(Button.A, function () {
     strip.clear()
+    startStop = 1 
     targetStart += targetDirection * -1
     targetRed = randint(0, 255)
     targetGreen = randint(0, 255)
@@ -476,6 +536,7 @@ input.onButtonPressed(Button.A, function () {
 
 input.onButtonPressed(Button.B, function () {
     strip.clear()
+    startStop = 1 
     targetStart += targetDirection
     targetRed = randint(0, 255)
     targetGreen = randint(0, 255)
@@ -574,7 +635,7 @@ Add a  ``||Variables.variables set()||`` instruction
 
 > and place it in the **on start** block below the **strip clear** instruction
 
->> use the drop down arrow and select the **startStop** variable name 
+>> use the drop down arrow **v** and select the **startStop** variable name 
 if it is not already selected 
 >> set the value in the **white circle** to **0** 
 
@@ -617,15 +678,18 @@ the **startStop** red oval and drop it onto the left hand
 do the same for both dropping a **targetStart** variable red oval 
 into the left hand **white circle**.
 
->> use the drop down arrows **v** to change each of the compare instructions 
+>> use the drop down arrows 
+in the middle of the compare instructions, **= v** 
+to change each of the compare instructions 
 and set the right hand circles as below 
-- **startStop = 0** 
-- **targetStart < 1** 
-- **targetStart > 59** 
+
+>> - **startStop = v 1** 
+- **targetStart < v 1** 
+- **targetStart > v 59** 
 
 
 ### Add the action if the logic is true 
-place a **Variables** ``||Variables.set()||`` instruction 
+Place a **Variables** ``||Variables.set()||`` instruction 
 inside each of the **if** instructions below the compare instructions. 
 
 > use the drop down **v** to select the **targetDirection** variable 
@@ -634,18 +698,23 @@ and **-1** in the lower **if**
 
 
 ### to complete the block 
-place a **Variables** ``||Variables.change()||`` instruction 
-just above the **call target** instruction 
 
-> and drop in  a **targetDirection** variable **red oval** onto 
+Drag and drop the **call target** instruction at the bottom up one 
+level so it is inside the bottom **if** bracket, just above the *+* 
+
+> then place a **Variables** ``||Variables.change()||`` instruction 
+just above the **call target** instruction. 
+Use the arrow **v** to select the **targetStart**.
+
+>> and drop in  a **targetDirection** variable **red oval** onto 
 the right hand **white circle** 
 
-Add a ``||basic.pause||`` at the very bottom of the instructions 
+Add a ``||basic.pause||`` below the **call** instructions 
 and set it to **100** ms 
 
 
 ### This code 
- Tests to see if the start of the LED block is at zero, 
+Tests to see if the start of the LED block is at zero, 
 the lower end of the LED strip, or at 60, the far end of the strip. 
 And changes the **targetDirection** variable to keep it within the strip.
 
@@ -661,11 +730,12 @@ basic.forever(function () {
                 targetDirection = -1
             }
         }
-    }
     targetStart += targetDirection
     target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
     crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
     basic.pause(100)
+    }
+
 })
 
 function crossHair (crossHairStart: number, crossHairLength: number, crossHairRed: number, crossHairGreen: number, crossHairBlue: number) {
@@ -682,35 +752,31 @@ function target (targetStart: number, targetLength: number, targetRed: number, t
 ``` 
 
 ## Add some movement to the crossHair pixels. 
+.
 
-Find the **on button A pressed** function block. 
-
-
+### Find the **on button A pressed** function block. 
 In the **change** instruction use the **v** arrow to select the 
 variable **crossHairStart** 
 
-> and check the value is the **white circle** is **1**
+> and check the value is the **white circle** is **1** 
 
 
-Find the **on button B pressed** function block. 
-
-
+### Find the **on button B pressed** function block. 
 In the **change** instruction use the **v** arrow to select the 
 variable **crossHairStart** 
 
 > and check the value is the **white circle** is **-1**
 
-
-
-This code will move the crossHair each time a button is pressed.
+This code will activate the movement, and 
+move the crossHair start position each time a button is pressed.
 
 
 
 ``` blocks
 
 input.onButtonPressed(Button.A, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1    
     crossHairStart += 1
     targetRed = 50
     targetGreen = 50
@@ -718,8 +784,8 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1    
     crossHairStart += -1
     targetRed = 0
     targetGreen = 100
@@ -747,7 +813,7 @@ targetRed = 0
 targetGreen = 0
 targetBlue = 0
 let crossHairRed = 100
-let crossHairGreen = 0
+let crossHairGreen = 1
 let crossHairBlue = 100
 basic.pause(200)
 basic.showLeds(`
@@ -775,8 +841,8 @@ Does it do what you expected?
 ``` blocks
 
 input.onButtonPressed(Button.A, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1   
     crossHairStart += 1
     targetRed = 50
     targetGreen = 50
@@ -784,8 +850,8 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
-    startStop = 1
     strip.clear()
+    startStop = 1  
     crossHairStart += -1
     targetRed = 0
     targetGreen = 100
@@ -841,7 +907,7 @@ targetRed = 0
 targetGreen = 0
 targetBlue = 0
 let crossHairRed = 100
-let crossHairGreen = 0
+let crossHairGreen = 1
 let crossHairBlue = 100
 basic.pause(200)
 basic.showLeds(`
@@ -860,11 +926,12 @@ basic.forever(function () {
                 targetDirection = -1
             }
         }
-    }
     targetStart += targetDirection
     target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
     crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
     basic.pause(100)
+    }
+
 })
 
 ```
