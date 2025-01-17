@@ -28,7 +28,7 @@ input.onButtonPressed(Button.B, function () {
 input.onButtonPressed(Button.AB, function () {
     startStop = 0
     targetLength = 10
-    targetStart = 10
+    targetStart = 0
     pins.digitalWritePin(DigitalPin.P13, 1)
     pins.digitalWritePin(DigitalPin.P14, 1)
     targetRed = 0
@@ -111,7 +111,13 @@ basic.forever(function () {
 
 
 ## Starting from the moving blocks of LEDs. 
-Add some new instructions 
+. 
+
+In the **on start** function 
+
+Change the value of **set targetStart** to **0** 
+
+### Add some new instructions 
 
 Find the forever block and Add a  ``||Variables.variables set()||`` instruction
 
@@ -127,6 +133,8 @@ Find the forever block and Add a  ``||Variables.variables set()||`` instruction
 > **right click** and duplicate each of the **set targetRed, Green, Blue** 
 instructions and move them into the lower **if** instruction 
 below the **set targetDirection = -1** instruction 
+
+
 
 
 This code sets the colour of the moving block each time it reaches 
@@ -331,7 +339,7 @@ left to right, top to bottom to read as below
 Do the same for the other compare **white circles** from 
 left to right, top to bottom to read as below 
 
->> - **crossHairStart =targetStart and v targetLength = 1** 
+>> - **crossHairStart =targetStart and v targetLength < 2** 
 
 
 
@@ -363,7 +371,7 @@ input.onButtonPressed(Button.A, function () {
         targetGreen = 0
         targetBlue = 0
     }
-    if (crossHairStart == targetStart && targetLength == 1) {
+    if (crossHairStart == targetStart && targetLength < 2) {
         targetLength = 61
         targetRed = 0
         targetGreen = 0
@@ -448,7 +456,7 @@ input.onButtonPressed(Button.A, function () {
         targetGreen = 0
         targetBlue = 0
     }
-    if (crossHairStart == targetStart && targetLength == 1) {
+    if (crossHairStart == targetStart && targetLength < 2) {
         targetLength = 61
         targetRed = 0
         targetGreen = 0
@@ -467,7 +475,7 @@ input.onButtonPressed(Button.B, function () {
         targetGreen = 0
         targetBlue = 0
     }
-    if (crossHairStart == targetStart && targetLength == 1) {
+    if (crossHairStart == targetStart && targetLength < 2) {
         targetLength = 61
         targetRed = 0
         targetGreen = 0
@@ -543,7 +551,7 @@ input.onButtonPressed(Button.A, function () {
         targetGreen = 0
         targetBlue = 0
     }
-    if (crossHairStart == targetStart && targetLength == 1) {
+    if (crossHairStart == targetStart && targetLength < 2) {
         targetLength = 61
         targetRed = 0
         targetGreen = 0
@@ -561,9 +569,15 @@ function target (targetStartPosition: number, targetLength: number, targetRed: n
 }
 input.onButtonPressed(Button.AB, function () {
     startStop = 0
+    targetLength = 10
+    targetStart = 0
+    pins.digitalWritePin(DigitalPin.P13, 1)
+    pins.digitalWritePin(DigitalPin.P14, 1)
+    targetRed = 0
+    targetGreen = 0
+    targetBlue = 0
     strip.clear()
     strip.show()
-    basic.pause(200)
     basic.showLeds(`
         . . . . #
         . . . # .
@@ -571,9 +585,7 @@ input.onButtonPressed(Button.AB, function () {
         . # . . .
         . . . . .
         `)
-    targetLength = 10
-    crossHairStart = 30
-    score = 30
+    basic.pause(200)
 })
 input.onButtonPressed(Button.B, function () {
     startStop = 1
@@ -585,7 +597,7 @@ input.onButtonPressed(Button.B, function () {
         targetGreen = 0
         targetBlue = 0
     }
-    if (crossHairStart == targetStart && targetLength == 1) {
+    if (crossHairStart == targetStart && targetLength < 2) {
         targetLength = 61
         targetRed = 0
         targetGreen = 0
@@ -724,7 +736,7 @@ basic.forever(function () {
         targetStart += targetDirection
         target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
         crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
-        basic.pause(100)
+        basic.pause(1)
         }
 
     }
