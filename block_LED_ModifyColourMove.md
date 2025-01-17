@@ -1,4 +1,3 @@
-
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
@@ -356,6 +355,12 @@ if it is not already selected
 >> set the value in the **white circle** to **0** 
 
 
+Add a **Neopixel** ``||neopixel.show()||`` 
+
+> and place it just below the **strip v clear** instruction. 
+
+
+
 ### Find the forever block
 Inside the block, add an **V Advanced**  **Functions**   ``||Functions.call()||`` 
 **Your Functions**  **call crossHair** instruction. 
@@ -565,6 +570,7 @@ function target (targetStart: number, targetLength: number, targetRed: number, t
 
 input.onButtonPressed(Button.AB, function () {
     strip.clear()
+    strip.show()
     targetRed = 0
     targetGreen = 0
     targetBlue = 0
@@ -617,30 +623,6 @@ basic.showLeds(`
 
 ## Making the target block move on its own. 
 .
-
-### Add a new variable
-to start and stop the movement. 
-
-> Make a variable by selecting  ``||Variables.make a variable()||``
-
-> and clicking on the **Make a Variable...** black box
-
-> give it the name **startStop**
-
-
-### Set up the variable 
-In the code find the **on start** block.
-
-Add a  ``||Variables.variables set()||`` instruction
-
-> and place it in the **on start** block below the **strip clear** instruction
-
->> use the drop down arrow **v** and select the **startStop** variable name 
-if it is not already selected 
->> set the value in the **white circle** to **0** 
-
-
-
 
 
 ### Find the forever block
@@ -699,8 +681,9 @@ and **-1** in the lower **if**
 
 ### to complete the block 
 
-Drag and drop the **call target** instruction at the bottom up one 
-level so it is inside the bottom **if** bracket, just above the *+* 
+Drag and drop both the **call target** and **call crossHair** 
+instructions at the bottom, up one 
+level so they are inside the bottom **if** bracket, just above the **+** 
 
 > then place a **Variables** ``||Variables.change()||`` instruction 
 just above the **call target** instruction. 
@@ -716,7 +699,8 @@ and set it to **100** ms
 ### This code 
 Tests to see if the start of the LED block is at zero, 
 the lower end of the LED strip, or at 60, the far end of the strip. 
-And changes the **targetDirection** variable to keep it within the strip.
+And changes the **targetDirection** variable to keep the block of 
+LED within the strip. 
 
 
 ``` blocks
