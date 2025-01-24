@@ -1,3 +1,4 @@
+
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
@@ -68,15 +69,21 @@ basic.forever(function () {
 ```
 
 
-# LED blocks with the BBuBIOLbox : Single LED : Adding colour : Modify the code.
+# LED blocks with the BBuBIOLbox : Single LED : Adding colour : Change the code.
 
+## Try the code.
+Click ``|Download|`` to try it out on the connected MicroBit and 
+to see what it does.
+
+
+> press one button, then the other, then both together  
 
 
 ## Add some colour to the LED on the box
 
 In the code blocks, find the **on button A pressed** island block.
 
-> In the ** strip set pixel color** sub-block
+> In the ** strip set pixel color** instruction
 
 >> change the **rgb(10,10,10)** values to **rgb(100 ,0 ,0)** 
 
@@ -134,7 +141,7 @@ Staying with the **on button A pressed** block.
 Choose your favorite colour from the colour wheel and note the
 **R G B** (red, green, blue) number values.
 
-> Put the values in the **set pixel color** sub-block
+> Put the values in the **set pixel color** instruction
 
 putting your chosen values in to replace **100, 0, 0**
 
@@ -148,4 +155,3 @@ to generate some more subtle colours.
 
 
 ...
-
