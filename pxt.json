@@ -15,7 +15,8 @@
         "colour_Block_LED_modifySingleToBlock.md",
         "block_LED_ModifyColourMove.md",
         "block_LED_ModifyBlockToGame.md",
-        "block_LED_ChangeColourMove.md"
+        "block_LED_ChangeColourMove.md",
+        "block_Game_LED_ChageGame.md"
     ],
     "testFiles": [
         "test.ts"
