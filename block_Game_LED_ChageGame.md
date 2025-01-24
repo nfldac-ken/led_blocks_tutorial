@@ -85,7 +85,7 @@ strip.setBrightness(50)
 strip.clear()
 strip.show()
 startStop = 0
-targetStart = 10
+targetStart = 0
 targetLength = 10
 let crossHairStart = 30
 let targetDirection = 1
