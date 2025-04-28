@@ -1,4 +1,5 @@
 
+
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
@@ -203,7 +204,7 @@ this makes the pattern last longer
 this makes it run faster  
 
 ### Find the green 
-**while pattern02Start** instruction and change the 
+**while pattern02StartStop** instruction and change the 
 **pause (ms)** white circle value to a lower value to 
 speed up pattern 2
 
@@ -300,7 +301,8 @@ and start to customise the display
 
  **Function Pattern01 ** 
  
-and the **set rangeRed, rangeGreen, and rangeBlue** instructions within it 
+and the **set pattern01Red, pattern01Green, and pattern01Blue** 
+instructions within it 
 
 > these are towards the bottom of the dark blue function block  
 
@@ -325,7 +327,7 @@ and see how the colours work there too
 again in the **function Pattern01** 
 dark blue block 
 
->find the **rangeRed, rangeGreen, and rangeBlue** 
+>find the  **set pattern01Red, pattern01Green, and pattern01Blue** 
 colour instructions 
 
 >> Drag and drop a **Math** ``||math.pickrandom()||`` instruction 
