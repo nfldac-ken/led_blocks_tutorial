@@ -1,4 +1,5 @@
 
+
 ```package
 
 neopixel=github:microsoft/pxt-neopixel#v0.7.5
@@ -297,17 +298,18 @@ and see how the colours work there too
 
 
 ## Try some random colours 
-again in the **function Pattern01** and **function Pattern02** 
-dark blue blocks 
+again in the **function Pattern01**
+dark blue block
 
->find the **set Pattern01Red** and other colour instructions 
+>find the **set Pattern01Red, Pattern01Green, Pattern01Blue** 
+colour instructions 
 
 
 >> Drag and drop a **Math** ``||math.pickrandom()||`` instruction 
 onto the right most **white circle** 
 and change its right hand **white circle** to **51**
 
->> do this for all **Red Green Blue** instructions to get the full effect. 
+
 
 This will make the pixels change to different colours each time  
 the pattern changes. 
@@ -315,7 +317,9 @@ the pattern changes.
 
 Then click ``|Download|`` to to see what it does. 
 
->do the same for **function Pattern02** and 
+### do the same for **function Pattern02** function block 
+find the **set Pattern02Red, Pattern02Green, Pattern02Blue** instructions
+
 
 >> try some different ramdom **to** values, less than **51**, 
 on some of the colour instructions, and see what 
