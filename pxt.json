@@ -17,7 +17,8 @@
         "block_LED_ModifyBlockToGame.md",
         "block_LED_ChangeColourMove.md",
         "block_Game_LED_ChageGame.md",
-        "fireworks_change_crackleWhoosh.md"
+        "fireworks_change_crackleWhoosh.md",
+        "fireworks_change_crackleBang.md"
     ],
     "testFiles": [
         "test.ts"
