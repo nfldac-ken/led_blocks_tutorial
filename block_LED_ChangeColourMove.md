@@ -238,8 +238,10 @@ input.onButtonPressed(Button.B, function () {
 ```
 
 
-## Check your code.
-Is it the same as shown by clicking the light bulb hint.
+## If things are not working as you expect.
+Check the code.
+
+Is it the same as shown by clicking the light bulb hint?
 
 Then click ``|Download|`` to try your code out on the connected MicroBit
 to see what it does.
