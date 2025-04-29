@@ -173,80 +173,13 @@ input.onButtonPressed(Button.B, function () {
 })
 
 
-basic.forever(function () {
-    target(targetStart, targetLength, targetRed, targetGreen, targetBlue)
-    crossHair(crossHairStart, 2, crossHairRed, crossHairGreen, crossHairBlue)
-})
-
-
-
-function crossHair (crossHairStart: number, crossHairLength: number, crossHairRed: number, crossHairGreen: number, crossHairBlue: number) {
-    range = strip.range(crossHairStart, crossHairLength)
-    range.showColor(neopixel.rgb(crossHairRed, crossHairGreen, crossHairBlue))
-}
-function target (targetStart: number, targetLength: number, targetRed: number, targetGreen: number, targetBlue: number) {
-    strip.clear()
-    range = strip.range(targetStart, targetLength)
-    range.showColor(neopixel.rgb(targetRed, targetGreen, targetBlue))
-}
-
-
-
-input.onButtonPressed(Button.AB, function () {
-    strip.clear()
-    strip.show()
-    targetRed = 0
-    targetGreen = 0
-    targetBlue = 0
-    targetLength = 10
-    targetStart = 10
-    basic.pause(200)
-    basic.showLeds(`
-        . . . . #
-        . . . # .
-        # . # . .
-        . # . . .
-        . . . . .
-        `)
-})
-
-let range: neopixel.Strip = null
-let targetBlue = 0
-let targetGreen = 0
-let targetRed = 0
-let targetDirection = 0
-let targetLength = 0
-let targetStart = 0
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(50)
-strip.clear()
-strip.show()
-targetStart = 10
-targetLength = 10
-let crossHairStart = 30
-targetDirection = 1
-targetRed = 0
-targetGreen = 0
-targetBlue = 0
-let crossHairRed = 100
-let crossHairGreen = 1
-let crossHairBlue = 100
-basic.pause(200)
-basic.showLeds(`
-    . . . . #
-    . . . # .
-    # . # . .
-    . # . . .
-    . . . . .
-    `)
 
 
 ```
 
 
 
-## Add some movement to the crossHair pixels. 
+## Add some movement and colours to the crossHair pixels. 
 .
 
 ### Find the **on button A pressed** function block. 
@@ -266,6 +199,19 @@ This code will activate the movement, and
 move the crossHair start position each time a button is pressed.
 
 
+### Find the set targetRed instruction
+
+and use the **v** arrow to change it to crossHairRed 
+> do the same for the **set green** and **blue** instructions
+
+Then click ``|Download|`` to try your code out on the connected MicroBit
+to see what it does.
+
+### Does it do what you expected? 
+
+
+
+
 
 ``` blocks
 
@@ -273,51 +219,21 @@ input.onButtonPressed(Button.A, function () {
     strip.clear()
     startStop = 1    
     crossHairStart += 1
-    targetRed = 50
-    targetGreen = 50
-    targetBlue = 0
+    targetRed = randint(0, 255)
+    targetGreen = randint(0, 255)
+    targetBlue = randint(0, 255)
 })
 
 input.onButtonPressed(Button.B, function () {
     strip.clear()
     startStop = 1    
     crossHairStart += -1
-    targetRed = 0
-    targetGreen = 100
-    targetBlue = 100
+    crossHairRed = randint(0, 255)
+    crossHairGreen = randint(0, 255)
+    crossHairBlue = randint(0, 255)
 })
 
-let range: neopixel.Strip = null
-let targetBlue = 0
-let targetGreen = 0
-let targetRed = 0
-let targetLength = 0
-let targetStart = 0
-let startStop = 0
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 61, NeoPixelMode.RGBW)
-strip.setBrightness(50)
-strip.clear()
-strip.show()
-startStop = 0
-targetStart = 10
-targetLength = 10
-let crossHairStart = 30
-let targetDirection = 1
-targetRed = 0
-targetGreen = 0
-targetBlue = 0
-let crossHairRed = 100
-let crossHairGreen = 1
-let crossHairBlue = 100
-basic.pause(200)
-basic.showLeds(`
-    . . . . #
-    . . . # .
-    # . # . .
-    . # . . .
-    . . . . .
-    `)
+
 
 ```
 
@@ -337,20 +253,20 @@ Does it do what you expected?
 
 input.onButtonPressed(Button.A, function () {
     strip.clear()
-    startStop = 1   
+    startStop = 1    
     crossHairStart += 1
-    targetRed = 50
-    targetGreen = 50
-    targetBlue = 0
+    targetRed = randint(0, 255)
+    targetGreen = randint(0, 255)
+    targetBlue = randint(0, 255)
 })
 
 input.onButtonPressed(Button.B, function () {
     strip.clear()
-    startStop = 1  
+    startStop = 1    
     crossHairStart += -1
-    targetRed = 0
-    targetGreen = 100
-    targetBlue = 100
+    crossHairRed = randint(0, 255)
+    crossHairGreen = randint(0, 255)
+    crossHairBlue = randint(0, 255)
 })
 input.onButtonPressed(Button.AB, function () {
     startStop = 0
